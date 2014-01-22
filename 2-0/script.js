@@ -20,15 +20,16 @@ $(document).ready(function() {
 			text: "If you're seeing this as a button, congratulations!",
 			href: 'http://twitter.com'
 		}
+		
 	];
 	for (var i = 0; i<data.length; i++) {
-		if (data.text) {
-			$('#news').append("<p><button type='button' class='btn btn-default' data-href='"+data.href+"''><span class='glyphicon glyphicon-star'></span> "+data.text+"</button></p>");
+		if (data[i].text) {
+			$('#news').append("<p><button type='button' class='btn btn-default' data-href='"+data[i].href+"'><span class='glyphicon glyphicon-star'></span> "+data[i].text+"</button></p>");
 		}
 	}
 	$("button").click(function() {
-		if (!this.attr('data-href')) {
-			document.location = this.attr('data-href');
+		if ($(this).attr('data-href')) {
+			document.location = $(this).attr('data-href');
 		}
 	});
 });
